@@ -1,0 +1,17 @@
+#!/bin/sh
+# Prints the latest public build id of a Steam app: tp-steamcmd-buildid <app-id>
+# Output: "buildid=<number>". Same query and parsing as LinuxGSM (lgsm/modules/core_steamcmd.sh):
+# app_info_print, then the "buildid" of branch "public" inside "branches".
+set -eu
+APP_ID="$1"
+case "$APP_ID" in 1948160 | 2239530) ;; *) echo "unsupported app id: $APP_ID" >&2; exit 2 ;; esac
+STEAMCMD_DIR=/opt/steamcmd
+if [ ! -x "$STEAMCMD_DIR/steamcmd.sh" ]; then
+  curl -fsSL https://client-update.steamstatic.com/installer/steamcmd_linux.tar.gz | tar -xz -C "$STEAMCMD_DIR"
+fi
+export HOME="$STEAMCMD_DIR/home"
+mkdir -p "$HOME"
+out="$("$STEAMCMD_DIR/steamcmd.sh" +login anonymous +app_info_request "$APP_ID" +app_info_update 1 +app_info_print "$APP_ID" +quit 2>&1 || true)"
+build="$(printf '%s\n' "$out" | sed -e '/"branches"/,/^}/!d' | sed -n '/"public"/,/}/p' | grep -m 1 buildid | tr -cd '0-9' || true)"
+[ -n "$build" ] || { echo "no buildid in app_info_print output" >&2; exit 3; }
+echo "buildid=$build"

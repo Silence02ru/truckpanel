@@ -1,0 +1,7 @@
+# Local builds from a checkout:
+#   docker compose -f docker/compose.yaml -f docker/compose.build.yaml --env-file .env up -d --build
+services:
+  panel:
+    build:
+      context: ..
+      dockerfile: docker/panel.Dockerfile

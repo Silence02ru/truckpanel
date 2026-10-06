@@ -1,0 +1,726 @@
+{
+  "app": {
+    "name": "TruckPanel"
+  },
+  "common": {
+    "loading": "Loading…",
+    "language": "Language",
+    "lightTheme": "Light theme",
+    "darkTheme": "Dark theme",
+    "cancel": "Cancel"
+  },
+  "setup": {
+    "title": "Initial setup",
+    "intro": "Create the administrator account. The installer printed the setup token when it finished.",
+    "token": "Setup token",
+    "username": "Username",
+    "usernameHint": "3–32 characters: latin letters, digits, dot, dash, underscore",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 10 characters",
+    "submit": "Create administrator"
+  },
+  "login": {
+    "title": "Sign in",
+    "subtitle": "Sign in to manage your servers.",
+    "login": "Username or email",
+    "password": "Password",
+    "submit": "Sign in"
+  },
+  "nav": {
+    "servers": "Servers",
+    "dashboard": "Dashboard",
+    "instances": "Instances",
+    "noInstances": "No servers yet",
+    "administration": "Administration",
+    "users": "Users",
+    "audit": "Audit log"
+  },
+  "shell": {
+    "logout": "Sign out",
+    "logoutAll": "Sign out everywhere",
+    "collapseSidebar": "Collapse sidebar",
+    "expandSidebar": "Expand sidebar",
+    "role": {
+      "administrator": "Administrator",
+      "manager": "Manager",
+      "moderator": "Moderator",
+      "viewer": "Viewer",
+      "user": "User"
+    },
+    "build": "build {{date}}",
+    "profile": "Profile"
+  },
+  "stats": {
+    "servers": "Servers",
+    "serversHint_one": "{{count}} stopped",
+    "serversHint_few": "{{count}} stopped",
+    "serversHint_many": "{{count}} stopped",
+    "serversHint_other": "{{count}} stopped",
+    "players": "Players online",
+    "slots": "128 slots per server",
+    "cpu": "CPU",
+    "memory": "Memory",
+    "disk": "Disk free",
+    "cores_one": "{{count}} core",
+    "cores_few": "{{count}} cores",
+    "cores_many": "{{count}} cores",
+    "cores_other": "{{count}} cores",
+    "waiting": "Waiting for data from the agent…",
+    "ofTotal": "of {{total}} ({{pct}}%)",
+    "diskOf": "free of {{total}}",
+    "quotaServers": "My servers",
+    "quotaResources": "RAM quota",
+    "quotaCpu": "CPU: {{used}} of {{total}}",
+    "quotaBackups": "Backup space",
+    "quotaHint": "quota set by the administrator"
+  },
+  "dashboard": {
+    "eyebrow": "Overview",
+    "title": "Dashboard",
+    "subtitle": "Your ETS2 and ATS servers at a glance",
+    "addServer": "New server",
+    "gameServers": "Game servers",
+    "emptyTitle": "No servers yet",
+    "emptyText": "ETS2 and ATS servers will appear here with status, load and power controls.",
+    "columns": {
+      "server": "Server",
+      "game": "Game",
+      "connection": "Connection",
+      "status": "Status",
+      "load": "Load",
+      "power": "Power",
+      "manage": "Management",
+      "metrics": "Server metrics"
+    },
+    "owner": "owner: {{username}}",
+    "quota": "Your quota: {{used}} of {{total}} servers, RAM {{mem}} of {{memTotal}} MB."
+  },
+  "errors": {
+    "network": "Cannot reach the panel. Check your connection and reload the page.",
+    "validation_failed": "Some fields are invalid. Check the form and try again.",
+    "unauthorized": "Sign in to continue.",
+    "forbidden": "You do not have permission to do this.",
+    "csrf_failed": "Your security token expired. Reload the page and try again.",
+    "not_found": "Not found.",
+    "rate_limited": "Too many attempts. Wait a minute and try again.",
+    "internal": "Something went wrong on the panel. Check the panel logs.",
+    "auth": {
+      "invalid_credentials": "Wrong login or password."
+    },
+    "setup": {
+      "not_available": "Initial setup is already completed. Please sign in.",
+      "invalid_token": "The setup token is not valid."
+    },
+    "server": {
+      "name_taken": "A server with this name already exists.",
+      "busy": "Another operation is running on this server. Wait for it to finish.",
+      "invalid_state": "This action is not available in the current server state.",
+      "no_free_ports": "No free ports left for a new server.",
+      "port_in_use": "The server port is used by another program on the host.",
+      "packages_missing": "Upload server_packages.sii and server_packages.dat first.",
+      "packages_invalid": "The file does not look like server_packages exported by the game.",
+      "token_in_use": "This token is already used by another server. Create a separate token for each server."
+    },
+    "agent": {
+      "unavailable": "The panel cannot reach its agent. Check that the agent container is running.",
+      "failed": "The agent reported an error. See the task history for details."
+    },
+    "moderator": {
+      "invalid_link": "Paste a steamcommunity.com profile link or a SteamID64.",
+      "not_found": "Steam profile not found.",
+      "duplicate": "This player is already a moderator of this server.",
+      "lookup_failed": "Steam did not answer. Try again later or paste the SteamID64."
+    },
+    "discord": {
+      "not_configured": "Paste a Discord webhook URL first.",
+      "webhook_invalid": "Discord does not accept this webhook: it was deleted or the URL is wrong. Create a new webhook in the channel settings and paste the URL again.",
+      "rate_limited": "Discord is rate limiting requests. The panel will retry.",
+      "unavailable": "Discord is unavailable right now. The panel will retry.",
+      "rejected": "Discord rejected the message. See the panel log for details."
+    },
+    "task": {
+      "interrupted": "The task was interrupted: the connection to the agent was lost (for example, while the panel was being updated). Start it again: SteamCMD continues the download where it stopped."
+    },
+    "steamcmd": {
+      "failed": "SteamCMD could not install the server. The cause is in the last lines of the task log (\"Log\" button)."
+    },
+    "profile": {
+      "wrong_password": "The current password is wrong.",
+      "username_taken": "This username is already taken.",
+      "email_taken": "This email is already used by another account.",
+      "steam_not_linked": "Link your Steam profile in the profile settings first.",
+      "current_session": "This is the current session — use \"Sign out\" for it."
+    },
+    "quota": {
+      "exceeded": "Your quota does not allow another server. Ask the administrator to raise it."
+    },
+    "user": {
+      "self_change": "You cannot change your own role or disable or delete your own account.",
+      "owns_servers": "This user owns servers. Transfer them to another owner or delete them first.",
+      "invite_invalid": "This link is invalid or has expired. Ask the administrator for a new one."
+    },
+    "member": {
+      "not_found": "No active user with this username or email.",
+      "duplicate": "This user already has access to the server.",
+      "owner": "The owner cannot be removed or demoted — transfer the server first."
+    },
+    "backup": {
+      "invalid": "This is not a TruckPanel backup or the archive is damaged.",
+      "game_mismatch": "The backup was made for another game.",
+      "quota": "Backup space is used up. Delete old backups or ask the administrator to raise the limit."
+    },
+    "schedule": {
+      "limit": "This server already has 10 schedules, the maximum.",
+      "invalid_timezone": "Unknown time zone."
+    }
+  },
+  "serverState": {
+    "NEW": "New",
+    "INSTALLING": "Installing",
+    "AWAITING_PACKAGES": "Needs server_packages",
+    "STOPPED": "Stopped",
+    "STARTING": "Starting",
+    "ONLINE": "Online",
+    "STOPPING": "Stopping",
+    "UPDATING": "Updating",
+    "ERROR": "Error",
+    "UNKNOWN": "Unknown"
+  },
+  "taskKind": {
+    "install": "Install",
+    "update": "Update",
+    "start": "Start",
+    "stop": "Stop",
+    "restart": "Restart",
+    "kill": "Kill",
+    "delete": "Delete",
+    "backup": "Backup",
+    "restore": "Restore"
+  },
+  "taskState": {
+    "queued": "Queued",
+    "running": "Running",
+    "succeeded": "Done",
+    "failed": "Failed"
+  },
+  "servers": {
+    "title": "Server",
+    "actionQueued": "task started",
+    "start": "Start",
+    "stop": "Stop",
+    "restart": "Restart",
+    "more": "More",
+    "update": "Update game",
+    "reinstall": "Reinstall (validate files)",
+    "kill": "Kill",
+    "createTitle": "New server",
+    "name": "Name",
+    "nameHint": "Shown as the session name in game (up to 63 characters). Always 128 slots.",
+    "createInfo": "The panel picks free ports and downloads the dedicated server with SteamCMD (about 1.3 GB).",
+    "create": "Create server",
+    "playersOf": "{{count}} / {{max}}",
+    "portsHint": "query port {{query}}",
+    "open": "Open",
+    "subtitle": "Connection port {{connection}}, query {{query}} · 128 slots",
+    "tabs": {
+      "overview": "Overview",
+      "console": "Console",
+      "config": "Configuration",
+      "moderators": "Moderators",
+      "players": "Players",
+      "discord": "Discord",
+      "members": "Access",
+      "backups": "Backups",
+      "schedule": "Schedule"
+    },
+    "map": "Map: {{map}}",
+    "ports": "Ports",
+    "portsDetail": "query {{query}}, virtual {{cv}}/{{qv}}",
+    "resources": "Limits: {{mem}} MB RAM, {{cpus}} CPU",
+    "mapLabel": "Map",
+    "slotsNote": "128 slots: SCS officially states a limit of 8, so the server logs the warning \"Proper player limit exceeded\" — this is expected and the server works. To see the server in the session browser, players set uset g_max_convoy_size \"128\" in their own config.cfg.",
+    "load": "Load",
+    "memUsage": "RAM {{used}} of {{limit}}",
+    "gameVersion": "Game version",
+    "versionHint": "Appears after the server starts"
+  },
+  "packages": {
+    "uploaded": "server_packages uploaded",
+    "ready": "Uploaded",
+    "missing": "Not uploaded",
+    "why": "The dedicated server needs server_packages.sii and server_packages.dat, which only the game can export. They define the map, DLCs and mods.",
+    "step1": "Enable the game console in the game config.cfg:",
+    "step2": "Start the game with the DLCs and mods you want and load a profile (the map must be loaded).",
+    "step3": "Press ~ and run",
+    "step4": "Upload both files from \"Documents/Euro Truck Simulator 2\" (or American Truck Simulator) here.",
+    "replace": "Uploaded — choose to replace",
+    "choose": "Choose file",
+    "upload": "Upload",
+    "restartNeeded": "The server is running: restart it to apply the new packages.",
+    "current": "Currently uploaded",
+    "dlc_one": "{{count}} DLC",
+    "dlc_few": "{{count}} DLC",
+    "dlc_many": "{{count}} DLC",
+    "dlc_other": "{{count}} DLC",
+    "mods_one": "{{count}} mod",
+    "mods_few": "{{count}} mods",
+    "mods_many": "{{count}} mods",
+    "mods_other": "{{count}} mods",
+    "noInfo": "Could not read the .sii contents.",
+    "uploadedBy": "Uploaded by {{user}}, {{time}}",
+    "history": "Previous versions",
+    "noHistory": "None yet: every replacement keeps the previous pair here (up to 5 versions).",
+    "rollback": "Roll back",
+    "rollbackTitle": "Restore this version?",
+    "rollbackText": "The pair from {{time}} becomes current. The current files are kept in the history.",
+    "restored": "server_packages version restored"
+  },
+  "tasks": {
+    "recent": "Recent tasks",
+    "kind": "Task",
+    "state": "Status",
+    "result": "Result",
+    "when": "When",
+    "showLog": "Log",
+    "log": "Task log",
+    "noLog": "No output yet.",
+    "whyFailed": "Why it failed",
+    "logHint": "\"flock /sys/devices/virtual/dmi… errno = 13\" lines are a harmless SteamCMD warning inside the container; the panel hides them. The cause of an error is in the last lines of the log."
+  },
+  "console": {
+    "readOnly": "Server output (read-only). The SCS dedicated server does not accept console commands; moderators manage the session in game.",
+    "empty": "Empty: the server has not run yet.",
+    "time": "Time",
+    "copy": "Copy",
+    "download": "Download log",
+    "clear": "Clear",
+    "waiting": "Waiting for server output…"
+  },
+  "danger": {
+    "title": "Danger zone",
+    "text": "Delete the server with its game files and configuration. Its ports are released.",
+    "delete": "Delete server",
+    "confirmTitle": "Delete server",
+    "confirmText": "This cannot be undone. Type the server name \"{{name}}\" to confirm.",
+    "deleteForever": "Delete forever"
+  },
+  "session": {
+    "title": "In-game session",
+    "persistent": "Persistent ID",
+    "temporary": "ID changes on start",
+    "searchId": "Session search id:",
+    "noIdYet": "appears after the server starts",
+    "copy": "Copy",
+    "copied": "Copied",
+    "persistentHint": "The server logs in to Steam with a logon token, so its session search id stays the same between starts.",
+    "temporaryHint": "Without a logon token the server logs in anonymously and gets a new search id on every start. Add a token to make it persistent.",
+    "step1": "Open",
+    "step2": "Create a token for the GAME app id (not the server):",
+    "step3": "Paste the token here. Each server needs its own token.",
+    "tokenPlaceholder": "Paste the token",
+    "tokenReplace": "Token saved — enter a new one to replace it",
+    "save": "Save",
+    "clear": "Remove token",
+    "tokenSaved": "Logon token saved",
+    "tokenCleared": "Logon token removed",
+    "restartNeeded": "The server is running: restart it to apply the token."
+  },
+  "config": {
+    "intro": "server_config.sii settings. The server reads them only at start, so changes apply after a restart. The panel keeps every version.",
+    "readOnly": "You cannot change the configuration — read only.",
+    "groups": {
+      "general": {
+        "title": "Session",
+        "desc": "How the server appears in the session browser."
+      },
+      "access": {
+        "title": "Access",
+        "desc": "Who can join."
+      },
+      "gameplay": {
+        "title": "Gameplay",
+        "desc": "Collisions, damage and how players are shown."
+      },
+      "traffic": {
+        "title": "Traffic",
+        "desc": "AI traffic and vehicle limits."
+      },
+      "advanced": {
+        "title": "Advanced",
+        "desc": "Rarely used settings."
+      }
+    },
+    "fields": {
+      "lobby_name": {
+        "label": "Session name",
+        "desc": "Shown in the session browser. Up to 63 characters."
+      },
+      "description": {
+        "label": "Description",
+        "desc": "Session description. Up to 63 characters."
+      },
+      "welcome_message": {
+        "label": "Welcome message",
+        "desc": "Shown to players when they join. Up to 127 characters."
+      },
+      "password": {
+        "label": "Session password",
+        "desc": "Empty = open to everyone. Up to 63 characters. Stored encrypted."
+      },
+      "player_damage": {
+        "label": "Damage from players",
+        "desc": "Players can receive damage from other players."
+      },
+      "hide_in_company": {
+        "label": "Hide players in companies",
+        "desc": "Remote players are hidden in company areas."
+      },
+      "hide_colliding": {
+        "label": "Hide colliding after teleport",
+        "desc": "Hide a colliding vehicle after teleporting."
+      },
+      "force_speed_limiter": {
+        "label": "Force speed limiter",
+        "desc": "Forces the speed limiter on."
+      },
+      "service_no_collision": {
+        "label": "No collisions at services",
+        "desc": "Disables collisions in service areas."
+      },
+      "in_menu_ghosting": {
+        "label": "Ghost while paused",
+        "desc": "Disables collisions while a player has the game paused."
+      },
+      "name_tags": {
+        "label": "Name tags",
+        "desc": "Show player names above vehicles."
+      },
+      "traffic": {
+        "label": "AI traffic",
+        "desc": "Enables traffic on the roads."
+      },
+      "max_vehicles_total": {
+        "label": "Vehicles total",
+        "desc": "SCS default is 100. SCS does not document the allowed range."
+      },
+      "max_ai_vehicles_player": {
+        "label": "AI vehicles per player",
+        "desc": "SCS default is 50. SCS does not document the allowed range."
+      },
+      "max_ai_vehicles_player_spawn": {
+        "label": "AI vehicle spawn per player",
+        "desc": "SCS default is 50. SCS does not document the allowed range."
+      },
+      "mods_optioning": {
+        "label": "Optional mods",
+        "desc": "Mods marked as optional are really optional for players."
+      },
+      "timezones": {
+        "label": "timezones",
+        "desc": "Allowed values 0–2. SCS does not document what each value means; the server generates 0 by default.",
+        "tooltip": "The SCS wiki describes this setting only as the range \"0–2\"."
+      }
+    },
+    "fixed": {
+      "title": "Managed by the panel",
+      "desc": "The panel always sets 128 slots, the connection and query ports, the logon token (\"In-game session\" card) and the moderator list (\"Moderators\" tab). friends_only and show_server are not used by the dedicated server."
+    },
+    "passwordKeep": "Password set — leave empty to keep it",
+    "passwordNone": "No password",
+    "passwordClear": "Remove password",
+    "passwordWillClear": "The password will be removed on save",
+    "unsaved": "Unsaved changes",
+    "version": "Configuration version {{version}}",
+    "reset": "Discard",
+    "save": "Save",
+    "saved": "Configuration saved. It applies at the next server start.",
+    "savedTitle": "Saved",
+    "restartRequired": "The server is running. Restart it for the changes to take effect.",
+    "later": "Later",
+    "restartNow": "Restart now",
+    "restartBannerTitle": "Restart required",
+    "restartBanner": "Configuration, moderators or token changed after the server started."
+  },
+  "moderators": {
+    "title": "Session moderators",
+    "intro": "Paste a Steam profile link or a SteamID64. The server promotes these players automatically when they join; moderators can change the time (/set_time) and rain (/set_rain_factor) via chat.",
+    "inputHint": "steamcommunity.com/id/name, steamcommunity.com/profiles/7656… or SteamID64",
+    "add": "Add",
+    "added": "{{name}} is now a moderator",
+    "remove": "Remove moderator",
+    "unknownName": "Name not available",
+    "empty": "No moderators yet.",
+    "applyOnRestart": "Changes to the list apply after a server restart.",
+    "addMe": "Add me"
+  },
+  "players": {
+    "title": "Players online",
+    "count": "{{count}} / {{max}}",
+    "name": "Player",
+    "since": "Online since",
+    "none": "Nobody is online right now.",
+    "offline": "The server is not running.",
+    "source": "Built from the server log (connect/disconnect lines). The server does not log SteamIDs."
+  },
+  "dock": {
+    "activity": "Activity",
+    "noActivity": "Finished tasks appear here: installs, starts, stops.",
+    "collapse": "Collapse console",
+    "expand": "Expand console",
+    "live": {
+      "online": "live",
+      "connecting": "connecting",
+      "offline": "offline"
+    }
+  },
+  "discord": {
+    "title": "Discord message",
+    "intro": "The panel posts one status message to the channel and keeps it up to date. Every server has its own message, even when the webhook is shared.",
+    "state": {
+      "disabled": "off",
+      "pending": "pending",
+      "ok": "working",
+      "error": "error"
+    },
+    "lastSuccess": "Last update: {{time}}",
+    "enabled": "Post the status to Discord",
+    "webhook": "Webhook URL",
+    "webhookHelp": "Discord: channel settings → Integrations → Webhooks → New Webhook → Copy Webhook URL.",
+    "webhookKept": "Webhook saved (id {{id}}). Leave the field empty to keep it.",
+    "webhookSetPlaceholder": "Saved — paste a new URL to replace it",
+    "interval": "Update",
+    "every": "every {{value}}",
+    "sec": "s",
+    "min": "min",
+    "language": "Message language",
+    "sections": "What to show",
+    "sectionsHint": "Status and players N / 128 are always shown.",
+    "section": {
+      "playerList": "Player list",
+      "searchId": "Session search id",
+      "version": "Game version",
+      "uptime": "Uptime",
+      "mods": "Mods",
+      "dlc": "DLC",
+      "instructions": "How to find the server (config.cfg)"
+    },
+    "notifyStatus": "Separate message when the server starts or goes down",
+    "notifyStatusHint": "In addition to the main message: \"back online\" / \"unavailable\".",
+    "save": "Save",
+    "saved": "Discord settings saved",
+    "refresh": "Update now",
+    "remove": "Remove from Discord",
+    "removeTitle": "Remove the message and the webhook?",
+    "removeText": "The status message is deleted from the channel and the webhook URL from the panel.",
+    "removed": "Message removed from Discord",
+    "urlFormat": "This is not a Discord webhook URL. It must start with https://discord.com/api/webhooks/"
+  },
+  "profile": {
+    "eyebrow": "Account",
+    "title": "Profile",
+    "subtitle": "Username, password, language and theme, Steam profile and active sign-ins.",
+    "save": "Save",
+    "currentPassword": "Current password",
+    "account": {
+      "title": "Account",
+      "username": "Username",
+      "email": "Email",
+      "saved": "Account details saved"
+    },
+    "password": {
+      "title": "Password",
+      "hint": "Changing the password signs out all other sessions.",
+      "new": "New password",
+      "repeat": "Repeat the new password",
+      "tooShort": "At least {{min}} characters",
+      "mismatch": "Passwords do not match",
+      "submit": "Change password",
+      "saved_one": "Password changed. {{count}} other session signed out.",
+      "saved_other": "Password changed. {{count}} other sessions signed out.",
+      "saved_few": "Password changed. {{count}} other sessions signed out.",
+      "saved_many": "Password changed. {{count}} other sessions signed out."
+    },
+    "preferences": {
+      "title": "Language and theme",
+      "hint": "Stored in your profile and applied in any browser after sign-in.",
+      "theme": "Theme"
+    },
+    "steam": {
+      "title": "Steam profile",
+      "hint": "Link your Steam account to become a session moderator on servers with one click.",
+      "link": "Link",
+      "unlink": "Unlink",
+      "linked": "Steam profile linked: {{name}}"
+    },
+    "sessions": {
+      "title": "Active sign-ins",
+      "device": "Device",
+      "signedIn": "Signed in",
+      "lastSeen": "Last activity",
+      "current": "this device",
+      "revoke": "Sign out this session",
+      "revokeOthers": "Sign out all others",
+      "unknownDevice": "Unknown device",
+      "revoked_one": "{{count}} session signed out",
+      "revoked_other": "{{count}} sessions signed out",
+      "revoked_few": "{{count}} sessions signed out",
+      "revoked_many": "{{count}} sessions signed out"
+    }
+  },
+  "invite": {
+    "title": "Invitation to TruckPanel",
+    "intro": "Account \"{{username}}\". Set a password to sign in.",
+    "submit": "Set password and sign in"
+  },
+  "users": {
+    "eyebrow": "Administration",
+    "title": "Users",
+    "subtitle": "Accounts, roles and quotas. Users create their own servers within the quota and share access themselves.",
+    "add": "Add user",
+    "user": "User",
+    "role": "Role",
+    "servers": "Servers",
+    "status": "Status",
+    "active": "active",
+    "disabled": "disabled",
+    "invitePending": "invitation pending",
+    "actions": "Actions",
+    "edit": "Edit",
+    "newInvite": "New invitation link",
+    "resetPassword": "Reset password",
+    "delete": "Delete",
+    "deleteTitle": "Delete user \"{{username}}\"?",
+    "deleteText": "The account and all its sessions are deleted. Users who own servers cannot be deleted.",
+    "editTitle": "User \"{{username}}\"",
+    "roleHint": "Administrators see and do everything. Users see only their own servers and the ones shared with them.",
+    "quota": "Quota",
+    "quotaServers": "Servers",
+    "quotaMemory": "RAM for all servers",
+    "quotaCpus": "CPU for all servers",
+    "quotaBackups": "Backup space",
+    "disableAccount": "Disable the account (signs out everywhere)",
+    "createAndInvite": "Create and get the link",
+    "inviteTitle": "Link for \"{{username}}\"",
+    "inviteText": "Send this link to the user to set a password. It works once and expires on {{time}}.",
+    "inviteWarning": "The link is shown only once. If it gets lost, create a new one — the old one stops working."
+  },
+  "audit": {
+    "eyebrow": "Security",
+    "title": "Audit log",
+    "subtitleAdmin": "Everything that happens in the panel: sign-ins, server, user and settings changes.",
+    "subtitleUser": "Actions on the servers you own.",
+    "when": "When",
+    "who": "Who",
+    "action": "Action",
+    "target": "Target",
+    "details": "Changes",
+    "server": "Server",
+    "allServers": "All servers",
+    "deletedServer": "deleted server",
+    "empty": "No entries.",
+    "more": "Show more"
+  },
+  "members": {
+    "title": "Server access",
+    "intro": "Add a panel user by username or email and pick a role. The owner manages access and can delete the server.",
+    "loginPlaceholder": "Username or email",
+    "add": "Add",
+    "you": "you",
+    "remove": "Remove access",
+    "leave": "Leave this server",
+    "makeOwner": "Make owner",
+    "transferTitle": "Transfer the server?",
+    "transferText": "\"{{username}}\" becomes the owner of \"{{server}}\". The server counts towards their quota; the previous owner stays as a manager.",
+    "transferred": "Server owner changed",
+    "role": {
+      "owner": "Owner",
+      "manager": "Manager",
+      "moderator": "Moderator",
+      "viewer": "Viewer"
+    }
+  },
+  "backups": {
+    "title": "Server backups",
+    "intro": "The newest {{keep}} are kept. Before a restore the panel makes a safety backup of the current state.",
+    "create": "Back up now",
+    "upload": "Upload archive",
+    "none": "No backups yet.",
+    "when": "When",
+    "kind": "Type",
+    "size": "Size",
+    "gameVersion": "Game version",
+    "system": "scheduled",
+    "restore": "Restore",
+    "download": "Download",
+    "delete": "Delete",
+    "started": "Creating the backup…",
+    "restoreStarted": "Restore started…",
+    "uploaded": "Archive uploaded",
+    "kinds": {
+      "manual": "manual",
+      "scheduled": "scheduled",
+      "pre-restore": "before restore",
+      "uploaded": "uploaded"
+    },
+    "contents": "Contains server_packages.sii/.dat, config_ds.cfg, server settings and moderators. Game files are not included (SteamCMD reinstalls them). No secrets: the logon token, session password and Discord webhook stay as they are.",
+    "restoreTitle": "Restore this backup?",
+    "restoreText": "Server files and settings return to {{time}}. The current state is saved as a separate backup.",
+    "restoreRunning": "The server is running: it is stopped and started again after the restore.",
+    "deleteTitle": "Delete the backup?",
+    "deleteText": "The archive is removed from the server for good."
+  },
+  "schedule": {
+    "title": "Schedule",
+    "intro": "Actions run automatically. If the server is busy with another task at that moment, the run is skipped. Runs missed while the panel was down are not caught up.",
+    "add": "Add schedule",
+    "edit": "Edit schedule",
+    "delete": "Delete",
+    "none": "No schedules.",
+    "action": "Action",
+    "when": "When",
+    "next": "Next run",
+    "last": "Last run",
+    "repeat": "Repeat",
+    "time": "Time",
+    "hours": "Every N hours",
+    "timezone": "Time zone",
+    "enabled": "Enabled",
+    "actions": {
+      "restart": "Restart",
+      "update": "Game update",
+      "backup": "Backup",
+      "start": "Start",
+      "stop": "Stop"
+    },
+    "kinds": {
+      "daily": "Every day",
+      "weekly": "Weekdays",
+      "interval": "Every N hours"
+    },
+    "day": {
+      "0": "Sun",
+      "1": "Mon",
+      "2": "Tue",
+      "3": "Wed",
+      "4": "Thu",
+      "5": "Fri",
+      "6": "Sat"
+    },
+    "dailyAt": "every day at {{time}}",
+    "weeklyAt": "{{days}} at {{time}}",
+    "everyHours_one": "every hour",
+    "everyHours_few": "every {{count}} hours",
+    "everyHours_many": "every {{count}} hours",
+    "everyHours_other": "every {{count}} hours",
+    "result": {
+      "started": "started",
+      "skipped": "skipped",
+      "no-update": "no update",
+      "failed": "failed"
+    },
+    "noWarning": "Updates run only when Steam has a newer build. Players cannot be warned in game: the SCS dedicated server accepts no commands.",
+    "autoRestart": "Restart automatically after a crash",
+    "autoRestartHint": "At most 3 attempts in 10 minutes; after that the server stays in the error state."
+  }
+}

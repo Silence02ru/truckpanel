@@ -1,0 +1,12 @@
+packages:
+  - apps/*
+  - packages/*
+
+allowBuilds:
+  esbuild: true
+
+  # dockerode pulls these in for SSH/gRPC transports we do not use (the agent talks to the
+  # local docker.sock). Their scripts only build optional native code: deny them.
+  cpu-features: false
+  ssh2: false
+  protobufjs: false

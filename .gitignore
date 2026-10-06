@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+.pglite/
+
+# Owner exports from the game (may contain server_logon_token); fixtures live in packages/sii/src/fixtures
+server-files-*/
+
+# Local only (not published): working notes with infrastructure details, legacy production scripts, tool settings
+context.md
+legacy/
+.claude/
+*.tgz

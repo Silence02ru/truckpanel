@@ -1,0 +1,99 @@
+:root {
+  --tp-sidebar-bg: var(--mantine-color-white);
+  --tp-body-bg: #f4f5f7;
+}
+
+[data-mantine-color-scheme='dark'] {
+  --tp-sidebar-bg: var(--mantine-color-dark-8);
+  --tp-body-bg: var(--mantine-color-dark-7);
+}
+
+body {
+  background: var(--tp-body-bg);
+}
+
+/* Sidebar navigation: active item gets an accent bar on the left. */
+.tp-nav-link {
+  position: relative;
+  border-radius: var(--mantine-radius-md);
+}
+
+.tp-nav-link[data-active] {
+  background: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-6));
+  color: inherit;
+}
+
+.tp-nav-link[data-active]::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--mantine-primary-color-filled);
+}
+
+.tp-section-label {
+  padding: 14px 12px 6px;
+  font-size: var(--mantine-font-size-sm);
+  color: var(--mantine-color-dimmed);
+}
+
+/* OVH-style table header: small uppercase, letter-spaced. */
+.tp-table thead th {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mantine-color-dimmed);
+  background: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+}
+
+.tp-stat-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  border: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  border-radius: var(--mantine-radius-md);
+  overflow: hidden;
+  background: light-dark(var(--mantine-color-white), var(--mantine-color-dark-6));
+}
+
+.tp-stat-tiles > * + * {
+  border-left: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}
+
+.tp-logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--mantine-primary-color-filled);
+  color: var(--mantine-color-black);
+}
+
+.tp-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.tp-mono {
+  font-family: var(--mantine-font-family-monospace);
+}
+
+.tp-log {
+  font-family: var(--mantine-font-family-monospace);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+  background: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
+  border: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  border-radius: var(--mantine-radius-md);
+  padding: 12px;
+  max-height: 420px;
+  overflow: auto;
+}

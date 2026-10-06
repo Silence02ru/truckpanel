@@ -1,0 +1,35 @@
+SiiNunit
+{
+server_packages_info : _nameless.10.2eeb.d4b8 {
+ version: 1
+ dlc_essential_list: 0
+ dlc_non_essential_list: 20
+ dlc_non_essential_list[0]: 184014387494829129
+ dlc_non_essential_list[1]: 1924694473000009
+ dlc_non_essential_list[2]: 159319428036701097
+ dlc_non_essential_list[3]: 35788286297
+ dlc_non_essential_list[4]: 2915488295593
+ dlc_non_essential_list[5]: 185318749291032329
+ dlc_non_essential_list[6]: 127433786367433
+ dlc_non_essential_list[7]: 152580447285606945
+ dlc_non_essential_list[8]: 124049807548903385
+ dlc_non_essential_list[9]: 1923074979804313
+ dlc_non_essential_list[10]: 72657298287504465
+ dlc_non_essential_list[11]: 49463220153873
+ dlc_non_essential_list[12]: 159189650753197777
+ dlc_non_essential_list[13]: 72971089849553161
+ dlc_non_essential_list[14]: 107259835144921
+ dlc_non_essential_list[15]: 1950735399699673
+ dlc_non_essential_list[16]: 3353899168865
+ dlc_non_essential_list[17]: 55132751433
+ dlc_non_essential_list[18]: 24801833
+ dlc_non_essential_list[19]: 74845097
+ mod_list: 0
+ map_name: "/map/usa.mbd"
+ map_dimensions: (-31744000, -19456000, 10240000, 19456000)
+ roads_data_file_name: "/home/server_packages.dat"
+ time_stamp: 1791223666
+ time_compression: 16.345001
+}
+
+}

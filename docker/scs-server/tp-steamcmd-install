@@ -1,0 +1,32 @@
+#!/bin/sh
+# Installs or updates a Steam dedicated server: tp-steamcmd-install <app-id>
+# SteamCMD lives in a shared, persistent directory (/opt/steamcmd) so its self-update
+# happens once per host, not on every install. Source: Valve wiki (SteamCMD, Linux manual install).
+set -eu
+APP_ID="$1"
+case "$APP_ID" in 1948160 | 2239530) ;; *) echo "unsupported app id: $APP_ID" >&2; exit 2 ;; esac
+
+STEAMCMD_DIR=/opt/steamcmd
+if [ ! -x "$STEAMCMD_DIR/steamcmd.sh" ]; then
+  echo "[truckpanel] downloading SteamCMD"
+  curl -fsSL https://client-update.steamstatic.com/installer/steamcmd_linux.tar.gz | tar -xz -C "$STEAMCMD_DIR"
+fi
+export HOME="$STEAMCMD_DIR/home"
+mkdir -p "$HOME"
+
+# Right after SteamCMD bootstraps/updates itself, app_update can fail once with
+# "ERROR! Failed to install app ... (Missing configuration)" (exit 8, seen on the test VPS);
+# the next run succeeds. Retry a bounded number of times.
+attempt=1
+while :; do
+  # Valve recommends setting the install dir before logging in.
+  set +e
+  "$STEAMCMD_DIR/steamcmd.sh" +force_install_dir /srv/game +login anonymous +app_update "$APP_ID" validate +quit
+  code=$?
+  set -e
+  [ "$code" -eq 0 ] && exit 0
+  [ "$attempt" -ge 3 ] && exit "$code"
+  echo "[truckpanel] SteamCMD exited with code $code, retrying ($((attempt + 1))/3)"
+  attempt=$((attempt + 1))
+  sleep 5
+done

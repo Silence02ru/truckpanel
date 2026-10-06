@@ -1,0 +1,79 @@
+# TruckPanel production stack. The installer places this in /opt/truckpanel with .env next to it.
+# The panel is published on loopback only; the host reverse proxy forwards the public domain to it.
+name: truckpanel
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: truckpanel
+      POSTGRES_DB: truckpanel
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - ${TRUCKPANEL_DATA_DIR:-/var/lib/truckpanel/data}/postgres:/var/lib/postgresql/data
+    networks: [backend]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U truckpanel -d truckpanel"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    logging: &logging
+      driver: json-file
+      options: { max-size: 10m, max-file: "3" }
+
+  panel:
+    # Built locally by the installer (docker build -f docker/panel.Dockerfile).
+    image: truckpanel/panel:${TRUCKPANEL_VERSION:-local}
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PANEL_HOST: 0.0.0.0
+      PANEL_PORT: 8080
+      # POSTGRES_PASSWORD must be URL-safe (the installer generates hex).
+      DATABASE_URL: postgres://truckpanel:${POSTGRES_PASSWORD}@postgres:5432/truckpanel
+      AGENT_URL: unix:/run/truckpanel/agent.sock
+    ports:
+      - "127.0.0.1:${PANEL_PORT:-8080}:8080"
+    volumes:
+      - agent-socket:/run/truckpanel
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [backend, egress]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    logging: *logging
+
+  # The only container with docker.sock (ARCHITECTURE.md §2.2). No TCP listener: the panel talks
+  # to it over a unix socket (mode 0660, group 1000). Host networking lets it see real host ports
+  # (/proc/net) and query game servers on 127.0.0.1.
+  agent:
+    image: truckpanel/agent:${TRUCKPANEL_VERSION:-local}
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      # Only what the agent needs; database credentials are not passed here.
+      AGENT_TOKEN: ${AGENT_TOKEN:?set AGENT_TOKEN in .env}
+      AGENT_LISTEN: /run/truckpanel/agent.sock
+      SERVERS_ROOT: /var/lib/truckpanel/servers
+      STEAMCMD_DIR: /var/lib/truckpanel/steamcmd
+      SCS_IMAGE: truckpanel/scs-server:${TRUCKPANEL_VERSION:-local}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Same path inside and outside: game container bind mounts use host paths.
+      - /var/lib/truckpanel:/var/lib/truckpanel
+      - agent-socket:/run/truckpanel
+    logging: *logging
+
+volumes:
+  agent-socket: {}
+
+networks:
+  # No outbound access: PostgreSQL is reachable only by the panel.
+  backend:
+    internal: true
+  # Outbound for the panel (Discord webhooks).
+  egress: {}

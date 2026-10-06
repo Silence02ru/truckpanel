@@ -1,0 +1,16 @@
+export const ME_KEY = ['auth', 'me'] as const;
+export const SETUP_KEY = ['setup', 'status'] as const;
+export const SERVERS_KEY = ['servers'] as const;
+export const serverKey = (id: string) => ['servers', id] as const;
+export const tasksKey = (id: string) => ['servers', id, 'tasks'] as const;
+export const logsKey = (id: string) => ['servers', id, 'logs'] as const;
+export const configKey = (id: string) => ['servers', id, 'config'] as const;
+export const moderatorsKey = (id: string) => ['servers', id, 'moderators'] as const;
+export const discordKey = (id: string) => ['servers', id, 'discord'] as const;
+export const SESSIONS_KEY = ['profile', 'sessions'] as const;
+export const USERS_KEY = ['users'] as const;
+export const membersKey = (id: string) => ['servers', id, 'members'] as const;
+export const AUDIT_KEY = ['audit'] as const;
+export const packagesKey = (id: string) => ['servers', id, 'packages'] as const;
+export const backupsKey = (id: string) => ['servers', id, 'backups'] as const;
+export const schedulesKey = (id: string) => ['servers', id, 'schedules'] as const;

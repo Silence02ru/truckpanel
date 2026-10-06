@@ -1,0 +1,25 @@
+SiiNunit
+{
+server_packages_info : _nameless.4ab.0798 {
+ version: 1
+ dlc_essential_list: 0
+ dlc_non_essential_list: 10
+ dlc_non_essential_list[0]: 2583912098162477
+ dlc_non_essential_list[1]: 5557801920893741
+ dlc_non_essential_list[2]: 92094914797
+ dlc_non_essential_list[3]: 92649725589
+ dlc_non_essential_list[4]: 59316381
+ dlc_non_essential_list[5]: 66750696595669
+ dlc_non_essential_list[6]: 50085130457797
+ dlc_non_essential_list[7]: 63651269
+ dlc_non_essential_list[8]: 2152080662829
+ dlc_non_essential_list[9]: 58739619063725
+ mod_list: 0
+ map_name: "/map/europe.mbd"
+ map_dimensions: (-24576000, -31744000, 20480000, 22528000)
+ roads_data_file_name: "/home/server_packages.dat"
+ time_stamp: 1791223531
+ time_compression: 15.560001
+}
+
+}
